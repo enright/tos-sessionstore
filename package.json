@@ -1,8 +1,8 @@
 {
   "name": "tos-sessionstore",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "client for tos-sessionstorage service",
-  "author": "Bill Enright <bill@yisup.com>, Manu Jain <writetomanu@gmail.com>",
+  "author": "Bill Enright <bill@yisup.com>, Manu Jain <writetomanujain@gmail.com>",
   "dependencies": {
 	"superagent": "0.18.x"
   },
