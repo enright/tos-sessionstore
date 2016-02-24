@@ -14,7 +14,7 @@ var should = require('should'),
 
 describe('session store', function () {
 
-	var fakeConnect = { session: { Store: function () {} } };
+	var fakeStore = Store: function () {};
 
 	describe('set and get', function (done) {
 		it('can set a session and get it back', function (done) {
@@ -27,7 +27,7 @@ describe('session store', function () {
 			futureExpireDate.setFullYear(futureExpireDate.getFullYear() + 1);
 			
 			uniqueSession = { one:uuid.v4(), two:uuid.v4(), cookie: { expires: futureExpireDate.toString() } },
-			testStore = store(fakeConnect, 'http://localhost:3004')({});
+			testStore = store(fakeStore, 'http://localhost:3004')({});
 			
 			testStore.set(uniqueKey, uniqueSession, function (err, res) {
 				if (err) {
@@ -50,7 +50,7 @@ describe('session store', function () {
 		});
 		it('gets undefined if session has never been put', function (done) {
 			var uniqueKey = uuid.v4(),
-				testStore = store(fakeConnect, 'http://localhost:3004')({});
+				testStore = store(fakeStore, 'http://localhost:3004')({});
 
 			testStore.get(uniqueKey, function (err, sess) {
 				if (err === undefined && sess === undefined) {
@@ -70,7 +70,7 @@ describe('session store', function () {
 			pastExpireDate.setFullYear(pastExpireDate.getFullYear() - 1);
 			
 			uniqueSession = { one:uuid.v4(), two:uuid.v4(), cookie: { expires: pastExpireDate.toString() } },
-			testStore = store(fakeConnect, 'http://localhost:3004')({});
+			testStore = store(fakeStore, 'http://localhost:3004')({});
 			
 			testStore.set(uniqueKey, uniqueSession, function (err, res) {
 				if (err) {
